@@ -1,0 +1,82 @@
+<!DOCTYPE HTML <html>
+
+<head>
+  <title>Reto 2 - Clientes</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="js/clientFunciones.js"></script>
+</head>
+
+
+<body onload="restGet()">
+
+  <style>
+    table#tabla_cliente {
+      background-color: solid white;
+    }
+
+    table#tabla_cliente,
+    table#tabla_cliente td {
+      border: 2px solid black;
+      padding: 5px;
+      border-collapse: collapse;
+      font-size: 15px;
+      text-align: center;
+      width: 20%;
+    }
+
+    div#div_tabla_detalle {
+      display: table;
+      width: min-content;
+      margin-top: 20px;
+      background-color: #f1f1e9fd;
+    }
+
+    table#tabla_detalle {
+      margin-bottom: 20px;
+      background-color: solid white;
+    }
+
+    table#tabla_detalle,
+    table#tabla_detalle th,
+    table#tabla_detalle td {
+      border: 2px solid black;
+      padding: 5px;
+      border-collapse: collapse;
+      font-size: 15px;
+      text-align: center;
+      width: 20%;
+    }
+  </style>
+
+  <header id="menu">
+    <nav>
+      <ul>
+        <li><a href="cabin.html">Cabañas</a></li>
+        <li><a>Clientes</a></li>
+        <li><a href="message.html">Mensajes</a></l>
+      </ul>
+    </nav>
+  </header>
+
+  <table id="tabla_cliente"></table>
+
+  <div id="div_tabla_detalle">
+
+  </div>
+
+  <h3>Agregar cliente</h3>
+
+  <div>
+    <label>ID:</label><br>
+    <input type="number" id="field_id"><br>
+    <label>Nombre:</label><br>
+    <input type="text" id="field_name"><br>
+    <label>Email:</label><br>
+    <input type="text" id="field_email"><br>
+    <label>Edad:</label><br>
+    <input type="number" id="field_age"><br>
+    <button id="botonAgregar" onclick="funcionBotonAgregar()"> Agregar </button>
+  </div>
+</body>
+
+</html>

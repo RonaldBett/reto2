@@ -1,0 +1,85 @@
+<!DOCTYPE HTML <html>
+
+<head>
+  <title>Reto 2 - Cabañas</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="js/cabinFunciones.js"></script>
+</head>
+
+
+<body onload="restGet()">
+
+  <style>
+    table#tabla_cabana {
+      background-color: solid white;
+    }
+
+    table#tabla_cabana,
+    table#tabla_cabana td {
+      border: 2px solid black;
+      padding: 5px;
+      border-collapse: collapse;
+      font-size: 15px;
+      text-align: center;
+      width: 20%;
+    }
+
+    div#div_tabla_detalle {
+      display: table;
+      width: min-content;
+      margin-top: 20px;
+      background-color: #f1f1e9fd;
+    }
+
+    table#tabla_detalle {
+      margin-bottom: 20px;
+      margin-right: 0px;
+      background-color: solid white;
+    }
+
+    table#tabla_detalle,
+    table#tabla_detalle th,
+    table#tabla_detalle td {
+      border: 2px solid black;
+      padding: 5px;
+      border-collapse: collapse;
+      font-size: 15px;
+      text-align: center;
+      width: 10%;
+    }
+  </style>
+
+  <header id="menu">
+    <nav>
+      <ul>
+        <li><a>Cabañas</a></li>
+        <li><a href="client.html">Clientes</a></li>
+        <li><a href="message.html">Mensajes</a></l>
+      </ul>
+    </nav>
+  </header>
+
+  <table id="tabla_cabana"></table>
+
+  <div id="div_tabla_detalle">
+
+  </div>
+
+  <h3>Agregar cabaña</h3>
+
+  <div id="prueba">
+    <label>ID:</label><br>
+    <input type="number" id="field_id"><br>
+    <label>Tipo de cabaña:</label><br>
+    <input type="text" id="field_brand"><br>
+    <label>Habitaciones:</label><br>
+    <input type="number" id="field_rooms"><br>
+    <label>Categoria:</label><br>
+    <input type="number" id="field_category_id"><br>
+    <label>Nombre:</label><br>
+    <input type="text" id="field_name"><br>
+    <button id="botonAgregar" onclick="funcionBotonAgregar()"> Agregar </button>
+  </div>
+</body>
+
+</html>
