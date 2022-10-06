@@ -114,12 +114,21 @@ function funcionBotonAgregar() {
     var category_id = $("#field_category_id").val();
     var name = $("#field_name").val();
 
+    if(validarAgregar(id, brand)){
+        alert("Debe ingresar 'id' y 'Tipo de cabaña'")
+        return
+    };
+
+    if(!!document.getElementById(id)){
+        alert("Ya existe un elemento con ese id")
+        return
+    };
+
     document.getElementById('field_id').value = "";
     document.getElementById('field_brand').value = "";
     document.getElementById('field_rooms').value = "";
     document.getElementById('field_category_id').value = "";
     document.getElementById('field_name').value = "";
-    if(!!document.getElementById(id)){return};
 
     let datos = {
         id: id,
@@ -146,6 +155,15 @@ function funcionBotonActualizar() {
     var category_id = document.getElementById("category_id_tabla_detalle").textContent;
     var name = document.getElementById("name_tabla_detalle").textContent;
 
+    if(rooms == "null"){rooms = ""}
+    if(category_id == "null"){category_id = ""}
+    if(name == "null"){name = ""}
+
+    if(brand == ""){
+        alert("El campo 'Tipo de cabaña' no puede estar vacío")
+        return
+    }
+
     let datos = {
         brand: brand,
         rooms: rooms,
@@ -170,4 +188,22 @@ function funcionBotonEliminar() {
 
 function funcionBotonCerrar() {
     $("#div_tabla_detalle").empty();
+}
+
+function validarAgregar(){
+    var id = $("#field_id").val();
+    var brand = $("#field_brand").val();
+
+    if(brand == "" || id == ""){
+        return true;
+    }
+
+    return false
+}
+
+function validarAgregar(a,b){
+    if(a == "" || b == ""){
+        return true;
+    }
+    return false
 }

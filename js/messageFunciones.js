@@ -108,9 +108,18 @@ function funcionBotonAgregar() {
     var id = $("#field_id").val();
     var messagetext= $("#field_mensaje").val();
 
+    if(validarAgregar(id, messagetext)){
+        alert("Debe ingresar 'id' y 'Mensaje'")
+        return
+    };
+
+    if(!!document.getElementById(id)){
+        alert("Ya existe un elemento con ese id")
+        return
+    };
+
     document.getElementById('field_id').value = "";
     document.getElementById('field_mensaje').value = "";
-    if(!!document.getElementById(id)){return};
 
     let datos = {
         id: id,
@@ -127,6 +136,11 @@ function funcionBotonAgregar() {
 function funcionBotonActualizar() {
     var id = document.getElementById("id_tabla_detalle").textContent;
     var messagetext = document.getElementById("mensaje_tabla_detalle").textContent;
+
+    if(messagetext == ""){
+        alert("El campo 'Mensaje' no puede estar vacío")
+        return
+    }
 
     let datos = {
         messagetext: messagetext,
@@ -151,4 +165,11 @@ function funcionBotonEliminar() {
 
 function funcionBotonCerrar() {
     $("#div_tabla_detalle").empty();
+}
+
+function validarAgregar(a,b){
+    if(a == "" || b == ""){
+        return true;
+    }
+    return false
 }

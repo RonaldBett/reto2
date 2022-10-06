@@ -112,11 +112,20 @@ function funcionBotonAgregar() {
     var email = $("#field_email").val();
     var age = $("#field_age").val();
 
+    if(validarAgregar(id, name)){
+        alert("Debe ingresar 'id' y 'nombre'")
+        return
+    };
+
+    if(!!document.getElementById(id)){
+        alert("Ya existe un elemento con ese id")
+        return
+    };
+
     document.getElementById('field_id').value = "";
     document.getElementById('field_name').value = "";
     document.getElementById('field_email').value = "";
     document.getElementById('field_age').value = "";
-    if(!!document.getElementById(id)){return};
 
     let datos = {
         id: id,
@@ -139,6 +148,14 @@ function funcionBotonActualizar() {
     var name = document.getElementById("name_tabla_detalle").textContent;
     var email = document.getElementById("email_tabla_detalle").textContent;
     var age = document.getElementById("age_tabla_detalle").textContent;
+
+    if(email == "null"){email = ""}
+    if(age == "null"){age = ""}
+
+    if(name == ""){
+        alert("El campo 'Nombre' no puede estar vacío")
+        return
+    }
 
     let datos = {
         name: name,
@@ -164,4 +181,11 @@ function funcionBotonEliminar() {
 
 function funcionBotonCerrar() {
     $("#div_tabla_detalle").empty();
+}
+
+function validarAgregar(a,b){
+    if(a == "" || b == ""){
+        return true;
+    }
+    return false
 }
